@@ -1,11 +1,13 @@
-<?php namespace App\Http\Controllers;
+<?php namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class PageController extends Controller {
+use App\Page;
+
+class AdminHomeController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -15,6 +17,7 @@ class PageController extends Controller {
 	public function index()
 	{
 		//
+        return view('AdminHome')->withPages(Page::all());
 	}
 
 	/**
@@ -79,6 +82,8 @@ class PageController extends Controller {
 	public function destroy($id)
 	{
 		//
+        Page::destroy($id);
+
 	}
 
 }
