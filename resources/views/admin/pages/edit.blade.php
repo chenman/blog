@@ -17,7 +17,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{URL('admin/pages')}}" method="POST">
+                    <form action="{{URL('admin/pages/'.$page->id)}}" method="POST">
                         <input type="hidden" name="_token" value="{{csrf_token()}}"/>
                         <input type="hidden" name="_method" value="PUT"/>
                         <input type="text" name="title" class="form-control" required="required" value="{{$page->title}}"/>

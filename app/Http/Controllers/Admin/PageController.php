@@ -83,14 +83,14 @@ class PageController extends Controller {
 	 */
 	public function update(Request $request, $id)
 	{
-        $this->validate($request,['title' => 'required|unique:pages|max:255', 'body' => 'required']);
+        $this->validate($request,['title' => 'required|unique:pages,title,'.$id.'|max:255', 'body' => 'required']);
 
         $page = Page::find($id);
         $page->title = Input::get('title');
         $page->body = Input::get('body');
         $page->user_id = Auth::user()->id;
 
-        if ($page->save) {
+        if ($page->save()) {
             return Redirect::to('admin');
         } else {
             return Redirect::back()->withInput()->withErrors('保存失败！');
