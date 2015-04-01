@@ -3,8 +3,12 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use Input;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+
+use App\Comment;
 
 class CommentController extends Controller {
 

@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+//Route::get('/', 'WelcomeController@index');
 
+Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index');
 
 Route::post('comment/store', 'CommentController@store');
@@ -26,3 +27,5 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin', 'middleware' => 'auth
     Route::get('/', 'AdminHomeController@index');
     Route::resource('pages', 'PageController');
 });
+
+Route::get('pages/{id}', 'Admin\PageController@show');
